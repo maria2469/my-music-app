@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  font-size: 85.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth ;
+  scroll-padding-top: 2rem;
+}
+.d-none{
+  display: none;
+}
+.d-block{
+  display: block;
+}
+
+html::-webkit-scrollbar{
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+  background-color: #fff;
+  border-radius: 5rem;
+}
+
 @layer base {
   :root {
     --background: 131 58% 98%;

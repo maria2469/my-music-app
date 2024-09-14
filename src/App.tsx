@@ -1,18 +1,18 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import { Navbar } from './components/Navbar'
-import { About } from './pages/About'
 import { Home } from './pages/Home'
+import { GenerateMusic } from './pages/generateMusic'
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="container">
+      <div className="container bg-white">
         <Switch>
           <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
+          <Route path="/generate-music" component={GenerateMusic} />
         </Switch>
       </div>
     </BrowserRouter>
