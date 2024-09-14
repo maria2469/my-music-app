@@ -1,22 +1,25 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-
-import { Navbar } from './components/Navbar'
-import { About } from './pages/About'
-import { Home } from './pages/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MusicGenerator from './components/MusicGenerator'; // Ensure the import path is correct
+import Navbar from './components/Navbar';
+import Header from './components/Header';
+import ActionButtons from './components/ActionButtons';
+import Chatbot from './components/Chatbot';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <div className="container">
+    <Router>
+      <div className="App min-h-screen bg-gradient-custom">
+        <Navbar />
+        <Header />
+        <ActionButtons />
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
+          <Route path="/MusicGenerator" component={MusicGenerator} />
+          {/* Define other routes here */}
         </Switch>
+        <Chatbot />
       </div>
-    </BrowserRouter>
-  )
-}
+    </Router>
+  );
+};
 
-export default App
+export default App;
