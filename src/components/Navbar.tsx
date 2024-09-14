@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { RiNeteaseCloudMusicLine } from 'react-icons/ri'; 
 
 export const Navbar: React.FC = () => (
   <nav className="bg-white shadow-md py-4 mb-4">
