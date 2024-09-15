@@ -18,7 +18,7 @@ export const GenerateMusic: React.FC = () => {
   }
 
  
-  const genreMoodImage = "assert/images/" + selectedMood.trim().toLowerCase() + ".jpg"
+  const genreMoodImage = "assert/images/" + selectedMood?.trim().toLowerCase() + ".jpg"
 
   return (
     <Fragment>
