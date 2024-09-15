@@ -15,8 +15,6 @@ const MusicPlayer: FC<MusicPlayerProps> = ({ musicUrl, background }) => {
         style={{ backgroundImage: `url(${background})` }}
       >
         <AudioPlayer className="custom-style w-[100%] " src={musicUrl} />
-
-        
       </div>
     </div>
   )
