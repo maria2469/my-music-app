@@ -11,7 +11,7 @@ const Hero: FC<HeroProps> = () => (
       {/* Unique text on the left */}
       <div className=" text-">
         <h1 className="text-3xl md:text-5xl text-center my-5 font-bold">
-          Sound Conpanion
+          MusicHeals
         </h1>
         <p className="text-center text-2xl ">
           Harmonize Your World: Generate Music That Moves You. Transform your

@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react'
-import { FaPlay, FaStop, FaRedo } from 'react-icons/fa';
-import { genres, images, moods } from '../apidata/data';
+import { genres, images, moods } from '../apidata/data'
+import MusicPlayer from '../components/MusicPlayer/MusicPlayer'
 export const GenerateMusic: React.FC = () => {
-  const [inputValue, setInputValue] = useState('')
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
   const [selectedMood, setSelectedMood] = useState<string | null>(null)
   const [generatedMusic, setGeneratedMusic] = useState<string | null>(null)
@@ -11,26 +10,14 @@ export const GenerateMusic: React.FC = () => {
   const handleGenerateMusic = () => {
     if (selectedGenre && selectedMood) {
       setGeneratedMusic(
-        `Generated music for: ${inputValue}${
-          selectedGenre ? ` in ${selectedGenre}` : ''
-        }${selectedMood ? ` with mood ${selectedMood}` : ''}`
+        `Generated music for:${selectedGenre ? ` in ${selectedGenre}` : ''}${
+          selectedMood ? ` with mood ${selectedMood}` : ''
+        }`
       )
       setSidebarOpen(true)
     } else {
       alert('Please select both genre and mood.')
     }
-  }
-
-  const handlePlayMusic = () => {
-    // Logic to play music
-  }
-
-  const handleStopMusic = () => {
-    // Logic to stop music
-  }
-
-  const handleReplayMusic = () => {
-    // Logic to replay music
   }
 
   const imageKey =
@@ -49,13 +36,6 @@ export const GenerateMusic: React.FC = () => {
       >
         <h1 className="text-3xl font-bold mb-6 text-white">Music Generator</h1>
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter musical theme or idea"
-            className="w-full p-4 border border-gray-300 rounded mb-4"
-          />
           <div className="mb-4">
             <p className="text-lg font-semibold mb-2">Select Genre:</p>
             <div className="flex flex-wrap gap-2">
@@ -113,13 +93,23 @@ export const GenerateMusic: React.FC = () => {
             >
               &times;
             </button>
-            <div className="flex flex-col w-full h-full">
+            <div className="flex items-center w-full h-full">
               {genreMoodImage && (
+                <MusicPlayer
+                  background={genreMoodImage}
+                  musicUrl={
+                    'assert/audios/' +
+                    selectedMood?.trim().toLowerCase() +
+                    '.mp3'
+                  }
+                />
+              )}
+              {/* {genreMoodImage && (
                 <div
                   className="flex-1 bg-cover bg-center"
                   style={{ backgroundImage: `url(${genreMoodImage})` }}
                 >
-                  {/* The image takes up half of the sidebar */}
+                  
                 </div>
               )}
               <div className="flex-1 p-4">
@@ -146,7 +136,7 @@ export const GenerateMusic: React.FC = () => {
                     <FaRedo size={24} />
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
