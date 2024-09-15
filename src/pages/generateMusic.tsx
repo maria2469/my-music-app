@@ -2,27 +2,23 @@ import React, { Fragment, useState } from 'react'
 import { genres, images, moods } from '../apidata/data'
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer'
 export const GenerateMusic: React.FC = () => {
-  const [selectedGenre, setSelectedGenre] = useState<string | null>(null)
   const [selectedMood, setSelectedMood] = useState<string | null>(null)
   const [generatedMusic, setGeneratedMusic] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const handleGenerateMusic = () => {
-    if (selectedGenre && selectedMood) {
+    if (selectedMood) {
       setGeneratedMusic(
-        `Generated music for:${selectedGenre ? ` in ${selectedGenre}` : ''}${
+        `Generated music  ${
           selectedMood ? ` with mood ${selectedMood}` : ''
         }`
       )
       setSidebarOpen(true)
-    } else {
-      alert('Please select both genre and mood.')
-    }
+    } 
   }
 
-  const imageKey =
-    selectedGenre && selectedMood ? `${selectedGenre}-${selectedMood}` : ''
-  const genreMoodImage = imageKey ? images[imageKey] : ''
+ 
+  const genreMoodImage = "assert/images/" + selectedMood.trim().toLowerCase() + ".jpg"
 
   return (
     <Fragment>
@@ -36,24 +32,7 @@ export const GenerateMusic: React.FC = () => {
       >
         <h1 className="text-3xl font-bold mb-6 text-white">Music Generator</h1>
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
-          <div className="mb-4">
-            <p className="text-lg font-semibold mb-2">Select Genre:</p>
-            <div className="flex flex-wrap gap-2">
-              {genres.map((genre) => (
-                <button
-                  key={genre}
-                  onClick={() => setSelectedGenre(genre)}
-                  className={`p-3 border rounded-md transition-colors duration-300 ease-in-out ${
-                    selectedGenre === genre
-                      ? 'bg-black text-white'
-                      : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                  }`}
-                >
-                  {genre}
-                </button>
-              ))}
-            </div>
-          </div>
+         
           <div className="mb-4">
             <p className="text-lg font-semibold mb-2">Select Mood:</p>
             <div className="flex flex-wrap gap-2">

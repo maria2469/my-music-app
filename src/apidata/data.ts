@@ -1,11 +1,11 @@
 export const images: { [key: string]: string } = {
-  'Pop-Happy': 'assert/images/pop-happy.jpg',
-  'Pop-Sad': 'assert/images/pop-sad.jpg',
-  'Pop-Energetic': 'assert/images/pop-energetic.jpg',
-  'Pop-Relaxed': 'assert/images/pop-relaxed.jpg',
-  'Pop-Melancholic': 'assert/images/pop-melancholic.jpg',
-  'Pop-Excited': 'assert/images/pop-excited.jpg',
-  'Pop-Calm': 'assert/images/pop-calm.jpg',
+  'Happy': 'assert/images/happy.jpg',
+  'Sad': 'assert/images/sad.jpg',
+  'Energetic': 'assert/images/energetic.jpg',
+  'Relaxed': 'assert/images/relaxed.jpg',
+  'Melancholic': 'assert/images/melancholic.jpg',
+  'Excited': 'assert/images/excited.jpg',
+  'Calm': 'assert/images/calm.jpg',
 
   'Rock-Happy': 'assert/images/rock-happy.jpg',
   'Rock-Sad': 'assert/images/rock-sad.jpg',
