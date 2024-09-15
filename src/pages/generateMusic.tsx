@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { genres, images, moods } from '../apidata/data'
+import { moods } from '../apidata/data'
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer'
 export const GenerateMusic: React.FC = () => {
   const [selectedMood, setSelectedMood] = useState<string | null>(null)
@@ -9,16 +9,14 @@ export const GenerateMusic: React.FC = () => {
   const handleGenerateMusic = () => {
     if (selectedMood) {
       setGeneratedMusic(
-        `Generated music  ${
-          selectedMood ? ` with mood ${selectedMood}` : ''
-        }`
+        `Generated music  ${selectedMood ? ` with mood ${selectedMood}` : ''}`
       )
       setSidebarOpen(true)
-    } 
+    }
   }
 
- 
-  const genreMoodImage = "assert/images/" + selectedMood?.trim().toLowerCase() + ".jpg"
+  const genreMoodImage =
+    'assert/images/' + selectedMood?.trim().toLowerCase() + '.jpg'
 
   return (
     <Fragment>
@@ -32,7 +30,6 @@ export const GenerateMusic: React.FC = () => {
       >
         <h1 className="text-3xl font-bold mb-6 text-white">Music Generator</h1>
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
-         
           <div className="mb-4">
             <p className="text-lg font-semibold mb-2">Select Mood:</p>
             <div className="flex flex-wrap gap-2">
